@@ -8,7 +8,7 @@ I'm leveraging the CRISP-DM framework for the process of my analysis which have 
 
 Part of understanding the data, I also had to do some data clean-up, since there are quite a number of missing data. I dropped several columns that have a lot of missing data and not useful such as VIN, cylinder, size, etc. The rest of missing data, I filled with median for numerical data and most frequent values for categorical data.
 
-I use data visualization (plot) in order to easily understand the data. The following shows several plot that visualize data distribution for some features of the data:
+I use data visualization (plot) in order to easily understand some of the data distribution for example: car by year, price, odometer, etc. The following shows several plot that visualize distribution for some features of the data:
 
 ![DistYear](images/DistYear.png)
 ![DistPrice](images/DistPrice.png)
@@ -24,7 +24,13 @@ The next plots visualize the correlation between Price & Odometer and price & Ye
 ![PriceVsOdometer](images/PriceVsOdometer.png)
 ![PriceVsYear](images/PriceVsYear.png)
 
+For the modelling, I used **Linear**, **Ridge**, and **Lasso Regression**. In order to improve the result of prediction score, I tried **GridSearchCV** to find best parameter so that I can plug-in the best Hyperparameter back into the model to see if it improved the scoring. 
 
+For my scoring, I used **MAE** and **R^2**. Since I didn't satisfy with the scoring result, I experimented with **RandomForestRegressor** and I did get better result with this algorithm. For this algorithm, I tried to improve it by finding best parameter using **RandomSearchCV** and I didn't use **GridSearchCV** because the combination of my Hyperparameter took too long to get the result. With RandomSearchCV, I ended up didn't get better result because it didn't try all the combination, I only used **25 iterations**.
+
+Finally, I produced the feature importance from my model result so I can come up with some conclusion.
+
+![FeatureImportance](images/FeatureImportance.png)
 
 ## Recommendation
 
